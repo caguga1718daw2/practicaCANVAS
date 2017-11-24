@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DAW2-M06-UF1</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Raul Francos i Carlos Guinovart" />
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+
+</head>
+
+
+<body>
+
+<h2>Projecte M06-UF1: Raul Francos i Carlos Guinovart</h2>
+
+
+
+    <h1>Video API</h1>
+
+</body>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+window.reproducir = function() {
+    document.getElementById("video").play();
+};
+
+window.pausar = function() {
+    document.getElementById("video").pause();
+};
+
+window.reload = function() {
+    document.getElementById("video").load();
+
+};
+
+window.makeLarge = function() {
+    document.getElementById("video").width(video.width = 1000, video.height=1000);
+
+};
+
+</script>
+<div align ="center">
+<button onclick="reproducir()">Reproducir</button>
+<button onclick="pausar()">Parar</button>
+<button onclick="reload()">Recargar</button>
+<button onclick="makeLarge()">pantalla completa</button>
+</div>
+
+<video id="video" width="640" height="480">
+    <source src="media/big_buck_bunny.ogv" type="video/ogg">
+</video>
