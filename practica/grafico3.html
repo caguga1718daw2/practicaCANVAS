@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+                <meta charset="utf-8" />
+            grafico1
+        </title>
+    </head>
+    <script type="text/javascript">
+        window.onload=carga;
+        function carga(){
+            var miLienzo = document.getElementById('miLienzo');
+            var lienzo = miLienzo.getContext('2d');
+            var img= new Image();
+            var a=50;
+            var b=20;
+            var c=200;
+            var d=80;
+            var max= Math.max(a,b,c,d);
+            var apos= 250-(a*100/Math.max(a,b,c,d))*2;
+            var bpos= 250-(b*100/Math.max(a,b,c,d))*2;
+            var cpos= 250-(c*100/Math.max(a,b,c,d))*2;
+            var dpos= 250-(d*100/Math.max(a,b,c,d))*2;
+            img.src = 'fondo.jpg';
+            img.onload = function(){
+                lienzo.drawImage(img,0,0,400,300);
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.lineWidth=3;    
+                lienzo.moveTo(50,250);
+                lienzo.lineTo(350,250);
+                lienzo.moveTo(50,50);
+                lienzo.lineTo(50,250);
+                lienzo.stroke();
+                lienzo.beginPath();
+                lienzo.fillText("EUROPA",25,50);
+                lienzo.fillText("AMERICA",25,100);
+                lienzo.fillText("ASIA",25,150);
+                lienzo.fillText("AFRICA",25,200);
+                lienzo.textAlign="center";
+                lienzo.fillText(max/4,50+300/4,260);
+                lienzo.fillText(max/2,50+300/2,260);
+                lienzo.fillText(3*max/4,50+3*300/4,260);
+                lienzo.fillText(max,350,260);
+
+
+                lienzo.stroke();
+            }
+        }
+    </script>
+    <body>
+        <canvas width="400" height="300" id="miLienzo">
+            Lo sentimos, tu navegador no soporta canvas
+        </canvas>
+    </body>
+</html>
