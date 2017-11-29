@@ -1,0 +1,132 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<title>
+		</title>
+		<body>
+                <div class="container">
+                        <div id="table" class="table-editable">
+                          <table class="table">
+                            <tr>
+                              <th id="demo" contenteditable="true">Name</th>
+                              <th contenteditable="true">Value</th>
+                              <th contenteditable="true">Value</th>
+                              <th contenteditable="true">Value</th>
+                            </tr>
+                            <tr>
+                              <td id="i1"contenteditable="true">0</td>
+                              <td id="j1"contenteditable="true">0</td>
+                              <td id="a1"contenteditable="true">0</td>
+                              <td id="b1"contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+                                <td id="i2"contenteditable="true">0</td>
+                                <td id="j2"contenteditable="true">0</td>
+                                <td id="a2"contenteditable="true">0</td>
+                                <td id="b2"contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+                                <td id="i3"contenteditable="true">0</td>
+                                <td id="j3"contenteditable="true">0</td>
+                                <td id="a3"contenteditable="true">0</td>
+                                <td id="b3"contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+                                <td id="i4"contenteditable="true">0</td>
+                                <td id="j4"contenteditable="true">0</td>
+                                <td id="a4"contenteditable="true">0</td>
+                                <td id="b4"contenteditable="true">0</td>
+                            </tr>
+                        </div>
+                        <button id="export-btn" class="btn btn-primary">Export Data</button>
+                        <p id="export"></p>
+                        <p id="ee"></p>
+                        <p id="a"></p>
+                        <canvas width="400" height="300" id="miLienzo">
+                            Lo sentimos, tu navegador no soporta canvas
+                        </canvas>
+                      </div>
+                      <script type="text/javascript">
+                        var array = [];
+                        var a=1;
+                        function data(){
+                        array[0]=document.getElementById("demo").innerHTML;
+                        array[1]=document.getElementById("i1").innerHTML;
+                        array[2]=document.getElementById("j1").innerHTML;
+                        array[3]=document.getElementById("a1").innerHTML;
+                        array[4]=document.getElementById("b1").innerHTML;
+                        array[5]=document.getElementById("i2").innerHTML;
+                        array[6]=document.getElementById("j2").innerHTML;
+                        array[7]=document.getElementById("a2").innerHTML;
+                        array[8]=document.getElementById("b2").innerHTML;
+                        array[9]=document.getElementById("i3").innerHTML;
+                        array[10]=document.getElementById("j3").innerHTML;
+                        array[11]=document.getElementById("a3").innerHTML;
+                        array[12]=document.getElementById("b3").innerHTML;
+                        array[13]=document.getElementById("i4").innerHTML;
+                        array[14]=document.getElementById("j4").innerHTML;
+                        array[15]=document.getElementById("a4").innerHTML;
+                        array[16]=document.getElementById("b4").innerHTML;
+                        document.getElementById("export").innerHTML = array;
+                        a=array[1];
+                        document.getElementById("ee").innerHTML = parseFloat(array[1]);
+                        }
+                        var myVar2=setInterval(function(){ carga() }, 1000);
+        function carga(){ 
+            var myVar = setInterval(function(){ data() }, 1000);
+            var miLienzo = document.getElementById('miLienzo');
+            var lienzo = miLienzo.getContext('2d');
+            var img= new Image();
+            var i=parseFloat(array[1])+parseFloat(array[5])+parseFloat(array[9])+parseFloat(array[13]);
+            var j=parseFloat(array[2])+parseFloat(array[6])+parseFloat(array[10])+parseFloat(array[14]);
+            var a=parseFloat(array[3])+parseFloat(array[7])+parseFloat(array[11])+parseFloat(array[15]);
+            var b=parseFloat(array[4])+parseFloat(array[8])+parseFloat(array[12])+parseFloat(array[16]);
+            var suma=i+j+a+b;
+            var porci=i*2*Math.PI/suma;
+            var porcj=j*2*Math.PI/suma;
+            var porca=a*2*Math.PI/suma;
+            var porcb=b*2*Math.PI/suma;
+            img.src = 'fondo.jpg';
+            img.onload = function(){
+                lienzo.drawImage(img,0,0,400,300);
+                lienzo.strokeStyle = "#ff00ff";
+                lienzo.fillStyle="black";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.lineTo(300,150);
+                lienzo.arc(200,150,100,0,porci,false);
+                lienzo.closePath();
+                lienzo.fill();
+                lienzo.fillStyle ="blue";
+                lienzo.stroke();
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.lineTo(200+100*Math.cos(porci),150+100*Math.sin(porci));
+                lienzo.arc(200,150,100,porci,porcj+porci,false);
+                lienzo.closePath();
+                lienzo.fill();
+                lienzo.fillStyle = "purple";
+                lienzo.stroke();
+                lienzo.strokeStyle = "white";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.arc(200,150,100,porci+porcj,porci+porca+porcj,false);
+                lienzo.closePath();
+                lienzo.fill();
+                lienzo.fillStyle= "green";
+                lienzo.stroke();
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.lineTo(200+100*Math.cos(porci+porca+porcj),150+100*Math.sin(porci+porca+porcj));
+                lienzo.arc(200,150,100,porci+porcj+porca,porci+porca+porcj+porcb,false);
+                lienzo.fill();
+                lienzo.stroke();
+                
+            }
+        }
+                    </script>
+                      
+		</body>
+</head>
