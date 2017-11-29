@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
         <title>
-                <meta charset="utf-8" />
-            grafico1
+            grafico2
         </title>
     </head>
     <script type="text/javascript">
@@ -22,16 +22,19 @@
             var cpos= 250-(c*100/Math.max(a,b,c,d))*2;
             var dpos= 250-(d*100/Math.max(a,b,c,d))*2;
             img.src = 'fondo.jpg';
+
             img.onload = function(){
                 lienzo.drawImage(img,0,0,400,300);
                 lienzo.strokeStyle = "black";
+
                 lienzo.beginPath();
-                lienzo.lineWidth=3;    
+                lienzo.lineWidth=3;
                 lienzo.moveTo(50,250);
                 lienzo.lineTo(350,250);
                 lienzo.moveTo(50,50);
                 lienzo.lineTo(50,250);
                 lienzo.stroke();
+                lienzo.strokeStyle = "white";
                 lienzo.beginPath();
                 lienzo.lineWidth=0.5;
                 lienzo.moveTo(50,50);
@@ -56,6 +59,7 @@
                 lienzo.lineTo(300,dpos);
 
                 lienzo.stroke();
+                lienzo.strokeStyle = "blue";
             }
         }
     </script>

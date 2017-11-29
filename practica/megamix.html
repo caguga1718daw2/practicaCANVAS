@@ -4,34 +4,64 @@
 		<title>
 		</title>
 		<body>
+
+			<div class="container">
+							<div id="colortable" class="table-editable">
+								<table class="colortable">
+									<tr>
+										<th id="demo" contenteditable="true">Color:</th>
+										<th>Color:</th>
+										<th>Color:</th>
+										<th>Color:</th>
+										<th>Tipografia:</th>
+									</tr>
+									<tr>
+										<td id="c1"contenteditable="true">#FF0000</td>
+										<td id="c2"contenteditable="true">#FF8000</td>
+										<td id="c3"contenteditable="true">#40FF00</td>
+										<td id="c4"contenteditable="true">#0040FF</td>
+										<td id="T1"contenteditable="true">ARIAL</td>
+									</tr>
+
+							</div>
+							<p id="exportColor"></p>
+
+
+
                 <div class="container">
                         <div id="table" class="table-editable">
                           <table class="table">
+
                             <tr>
-                              <th id="demo" contenteditable="true">Name</th>
-                              <th contenteditable="true">Value</th>
-                              <th contenteditable="true">Value</th>
-                              <th contenteditable="true">Value</th>
+															<th></th>
+                              <th id="n1"contenteditable="true" type="text">RRR</th>
+                              <th id="n2"contenteditable="true" type="text">RRR</th>
+                              <th id="n3"contenteditable="true" type="text">RRR</th>
+                              <th id="n4"contenteditable="true" type="text">RRR</th>
                             </tr>
                             <tr>
+															<td contenteditable="true">Value</td>
                               <td id="i1"contenteditable="true">0</td>
                               <td id="j1"contenteditable="true">0</td>
                               <td id="a1"contenteditable="true">0</td>
                               <td id="b1"contenteditable="true">0</td>
                             </tr>
                             <tr>
+															<td contenteditable="true">Value</td>
                                 <td id="i2"contenteditable="true">0</td>
                                 <td id="j2"contenteditable="true">0</td>
                                 <td id="a2"contenteditable="true">0</td>
                                 <td id="b2"contenteditable="true">0</td>
                             </tr>
                             <tr>
+															<td contenteditable="true">Value</td>
                                 <td id="i3"contenteditable="true">0</td>
                                 <td id="j3"contenteditable="true">0</td>
                                 <td id="a3"contenteditable="true">0</td>
                                 <td id="b3"contenteditable="true">0</td>
                             </tr>
                             <tr>
+															<td contenteditable="true">Value</td>
                                 <td id="i4"contenteditable="true">0</td>
                                 <td id="j4"contenteditable="true">0</td>
                                 <td id="a4"contenteditable="true">0</td>
@@ -67,12 +97,29 @@
                         array[14]=document.getElementById("j4").innerHTML;
                         array[15]=document.getElementById("a4").innerHTML;
                         array[16]=document.getElementById("b4").innerHTML;
+
+												//Colors per els gràfics
+												array[17]=document.getElementById("c1").innerHTML;
+												array[18]=document.getElementById("c2").innerHTML;
+												array[19]=document.getElementById("c3").innerHTML;
+												array[20]=document.getElementById("c4").innerHTML;
+
+												//titol de la porcio
+												array[21]=document.getElementById("n1").innerHTML;
+												array[22]=document.getElementById("n2").innerHTML;
+												array[23]=document.getElementById("n3").innerHTML;
+												array[24]=document.getElementById("n4").innerHTML;
+
+												//Tipus de tipografia
+												array[25]=document.getElementById("T1").innerHTML;
+
+
                         document.getElementById("export").innerHTML = array;
                         a=array[1];
                         document.getElementById("ee").innerHTML = parseFloat(array[1]);
                         }
                         var myVar2=setInterval(function(){ carga() }, 1000);
-        function carga(){ 
+        function carga(){
             var myVar = setInterval(function(){ data() }, 1000);
             var miLienzo = document.getElementById('miLienzo');
             var lienzo = miLienzo.getContext('2d');
@@ -90,14 +137,14 @@
             img.onload = function(){
                 lienzo.drawImage(img,0,0,400,300);
                 lienzo.strokeStyle = "#ff00ff";
-                lienzo.fillStyle="black";
+                lienzo.fillStyle=(array[17]);
                 lienzo.beginPath();
                 lienzo.moveTo(200,150);
                 lienzo.lineTo(300,150);
                 lienzo.arc(200,150,100,0,porci,false);
                 lienzo.closePath();
                 lienzo.fill();
-                lienzo.fillStyle ="blue";
+                lienzo.fillStyle =(array[18]);
                 lienzo.stroke();
                 lienzo.strokeStyle = "black";
                 lienzo.beginPath();
@@ -106,7 +153,7 @@
                 lienzo.arc(200,150,100,porci,porcj+porci,false);
                 lienzo.closePath();
                 lienzo.fill();
-                lienzo.fillStyle = "purple";
+                lienzo.fillStyle = (array[19]);
                 lienzo.stroke();
                 lienzo.strokeStyle = "white";
                 lienzo.beginPath();
@@ -114,7 +161,7 @@
                 lienzo.arc(200,150,100,porci+porcj,porci+porca+porcj,false);
                 lienzo.closePath();
                 lienzo.fill();
-                lienzo.fillStyle= "green";
+                lienzo.fillStyle= (array[20]);
                 lienzo.stroke();
                 lienzo.strokeStyle = "black";
                 lienzo.beginPath();
@@ -123,10 +170,28 @@
                 lienzo.arc(200,150,100,porci+porcj+porca,porci+porca+porcj+porcb,false);
                 lienzo.fill();
                 lienzo.stroke();
-                
+
+
+								// LLegenda del gràfic
+								lienzo.font = "13px Comic Sans MS";
+							lienzo.fillStyle = (array[17]);
+								lienzo.fillText(array[21],300,220);
+								lienzo.stroke();
+								lienzo.fillStyle =  (array[18]);
+								lienzo.fillText(array[22],300,240);
+								lienzo.stroke();
+								lienzo.fillStyle =  (array[19]);
+								lienzo.fillText(array[23],300,260);
+								lienzo.stroke();
+								lienzo.fillStyle =  (array[20]);
+								lienzo.fillText(array[24],300,280);
+								lienzo.stroke();
+
+
+
             }
         }
                     </script>
-                      
+
 		</body>
 </head>
