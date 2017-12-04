@@ -1,6 +1,10 @@
 <html>
 	<head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<title>
 		</title>
 		<body>
@@ -13,18 +17,19 @@
 										<th>Color:</th>
 										<th>Color:</th>
 										<th>Color:</th>
-										<th>Tipografia:</th>
+                    <th>Tipografia:</th>
+                    <th>Fondo:</th>
 									</tr>
 									<tr>
 										<td id="c1"contenteditable="true">#FF0000</td>
 										<td id="c2"contenteditable="true">#FF8000</td>
 										<td id="c3"contenteditable="true">#40FF00</td>
 										<td id="c4"contenteditable="true">#0040FF</td>
-										<td id="T1"contenteditable="true">ARIAL</td>
+                    <td id="T1"contenteditable="true">ARIAL</td>
+                    <td id="fons" contenteditable="true">0</td>
 									</tr>
 
-							</div>
-							<p id="exportColor"></p>
+              </div>
 
 
 
@@ -68,16 +73,23 @@
                                 <td id="b4"contenteditable="true">0</td>
                             </tr>
                         </div>
-                        <button id="export-btn" class="btn btn-primary">Export Data</button>
-                        <p id="export"></p>
-                        <p id="ee"></p>
-                        <p id="a"></p>
-                        <canvas width="400" height="300" id="miLienzo">
-                            Lo sentimos, tu navegador no soporta canvas
-                        </canvas>
-                        <canvas width="400" height="300" id="miLienzo2">
-                          Lo sentimos, tu navegador no soporta canvas
+                        
+                      </div>
+                      <div>
+                      <canvas width="400" height="300" id="miLienzo">
+                        Lo sentimos, tu navegador no soporta canvas
                       </canvas>
+                      <canvas width="400" height="300" id="miLienzo2">
+                      Lo sentimos, tu navegador no soporta canvas
+                      </canvas>
+                      </div>
+                      <div>
+                        <canvas width="400" height="300" id="miLienzo3">
+                          Lo sentimos, tu navegador no soporta canvas
+                        </canvas>
+                        <canvas width="400" height="300" id="miLienzo4">
+                        Lo sentimos, tu navegador no soporta canvas
+                        </canvas>
                       </div>
                       <script type="text/javascript">
                         var array = [];
@@ -115,15 +127,17 @@
 
 												//Tipus de tipografia
 												array[25]=document.getElementById("T1").innerHTML;
-
-
-                        document.getElementById("export").innerHTML = array;
-                        a=array[1];
-                        document.getElementById("ee").innerHTML = parseFloat(array[1]);
+                        array[26]=document.getElementById("fons").innerHTML;
                         }
                         var myVar2=setInterval(function(){ carga() }, 1000);
         function carga(){
             var myVar = setInterval(function(){ data() }, 1000);
+            var v2=setInterval(function(){ g1() }, 1000);
+            var v3=setInterval(function(){ g2() }, 1000);
+            var v4=setInterval(function(){ g3() }, 1000);
+            var v5=setInterval(function(){ g4() }, 1000);
+        } 
+        function g1(){
             var miLienzo = document.getElementById('miLienzo');
             var lienzo = miLienzo.getContext('2d');
             var img= new Image();
@@ -140,7 +154,12 @@
             var porcj=j*2*Math.PI/suma;
             var porca=a*2*Math.PI/suma;
             var porcb=b*2*Math.PI/suma;
-            img.src = 'fondo.jpg';
+            if (parseInt(array[26])==0){
+            img.src = 'white.jpg';}
+            if (parseInt(array[26])==1){
+            img.src = 'azul.jpeg';}
+            if (parseInt(array[26])==2){
+            img.src = 'amarillo.jpeg';}
             img.onload = function(){
                 lienzo.drawImage(img,0,0,400,300);
                 lienzo.strokeStyle = "#ff00ff";
@@ -195,6 +214,339 @@
 								lienzo.stroke();
 
 
+
+            }
+        }
+        function g2(){
+          var miLienzo = document.getElementById('miLienzo2');
+            var lienzo = miLienzo.getContext('2d');
+            var img= new Image();
+            var a=parseFloat(array[1]);
+            var b=parseFloat(array[5]);
+            var c=parseFloat(array[9]);
+            var d=parseFloat(array[13]);
+            var e=parseFloat(array[2]);
+            var f=parseFloat(array[6]);
+            var g=parseFloat(array[10]);
+            var h=parseFloat(array[14]);
+            var i=parseFloat(array[3]);
+            var j=parseFloat(array[7]);
+            var k=parseFloat(array[11]);
+            var l=parseFloat(array[15]);
+            var m=parseFloat(array[4]);
+            var n=parseFloat(array[8]);
+            var o=parseFloat(array[12]);
+            var p=parseFloat(array[16]);
+            var max= Math.max(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p);
+            var apos= 250-(a*100/max)*2;
+            var bpos= 250-(b*100/max)*2;
+            var cpos= 250-(c*100/max)*2;
+            var dpos= 250-(d*100/max)*2;
+            var epos= 250-(e*100/max)*2;
+            var fpos= 250-(f*100/max)*2;
+            var gpos= 250-(g*100/max)*2;
+            var hpos= 250-(h*100/max)*2;
+            var ipos= 250-(i*100/max)*2;
+            var jpos= 250-(j*100/max)*2;
+            var kpos= 250-(k*100/max)*2;
+            var lpos= 250-(l*100/max)*2;
+            var mpos= 250-(m*100/max)*2;
+            var npos= 250-(n*100/max)*2;
+            var opos= 250-(o*100/max)*2;
+            var ppos= 250-(p*100/max)*2;
+            if (parseInt(array[26])==0){
+            img.src = 'white.jpg';}
+            if (parseInt(array[26])==1){
+            img.src = 'azul.jpeg';}
+            if (parseInt(array[26])==2){
+            img.src = 'amarillo.jpeg';}
+
+            img.onload = function(){
+                lienzo.drawImage(img,0,0,400,300);
+                lienzo.strokeStyle = "black";
+                lienzo.fillStyle="black";
+                lienzo.beginPath();
+                lienzo.lineWidth=3;
+                lienzo.moveTo(50,250);
+                lienzo.lineTo(350,250);
+                lienzo.moveTo(50,50);
+                lienzo.lineTo(50,250);
+                lienzo.stroke();
+                lienzo.strokeStyle = "white";
+                lienzo.beginPath();
+                lienzo.lineWidth=0.5;
+                lienzo.moveTo(50,50);
+                lienzo.lineTo(350,50);
+                lienzo.fillText(max,25,50);
+                lienzo.moveTo(50,100);
+                lienzo.lineTo(350,100);
+                lienzo.fillText(3*max/4,25,100);
+                lienzo.moveTo(50,150);
+                lienzo.lineTo(350,150);
+                lienzo.fillText(max/2,25,150);
+                lienzo.moveTo(50,200);
+                lienzo.lineTo(350,200);
+                lienzo.fillText(max/4,25,200);
+                lienzo.fillText(array[21],50,260);
+                lienzo.fillText(array[22],125,260);
+                lienzo.fillText(array[23],200,260);
+                lienzo.fillText(array[24],275,260);
+                lienzo.stroke();
+                lienzo.beginPath();
+                
+                lienzo.moveTo(75,apos);
+                lienzo.lineTo(150,bpos);
+                lienzo.lineTo(225,cpos);
+                lienzo.lineTo(300,dpos);
+                lienzo.strokeStyle=(array[17]);
+                lienzo.stroke();
+
+                lienzo.beginPath();
+                lienzo.moveTo(75,epos);
+                lienzo.lineTo(150,fpos);
+                lienzo.lineTo(225,gpos);
+                lienzo.lineTo(300,hpos);
+                lienzo.strokeStyle=(array[18]);
+                lienzo.stroke();
+               
+                lienzo.beginPath();
+                lienzo.moveTo(75,ipos);
+                lienzo.lineTo(150,jpos);
+                lienzo.lineTo(225,kpos);
+                lienzo.lineTo(300,lpos);
+                lienzo.strokeStyle=(array[19]);
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.moveTo(75,mpos);
+                lienzo.lineTo(150,npos);
+                lienzo.lineTo(225,opos);
+                lienzo.lineTo(300,ppos);
+                lienzo.strokeStyle=(array[20]);
+                lienzo.stroke();
+
+                lienzo.beginPath();
+                lienzo.fillStyle = (array[17]);
+				lienzo.fillText(array[21],75,20);
+                lienzo.stroke();
+
+                lienzo.fillStyle =  (array[18]);
+				lienzo.fillText(array[22],150,20);
+				lienzo.stroke();
+
+				lienzo.fillStyle =  (array[19]);
+				lienzo.fillText(array[23],225,20);
+				lienzo.stroke();
+
+                lienzo.fillStyle =  (array[20]);
+                lienzo.fillText(array[24],300,20);
+                lienzo.stroke();
+            }
+        }
+        function g3(){
+            var miLienzo = document.getElementById('miLienzo3');
+            var lienzo = miLienzo.getContext('2d');
+            var img= new Image();
+            var a=parseFloat(array[1]);
+            var b=parseFloat(array[2]);
+            var c=parseFloat(array[3]);
+            var d=parseFloat(array[4]);
+            var e=parseFloat(array[5]);
+            var f=parseFloat(array[6]);
+            var g=parseFloat(array[7]);
+            var h=parseFloat(array[8]);
+            var i=parseFloat(array[9]);
+            var j=parseFloat(array[10]);
+            var k=parseFloat(array[11]);
+            var l=parseFloat(array[12]);
+            var m=parseFloat(array[13]);
+            var n=parseFloat(array[14]);
+            var o=parseFloat(array[15]);
+            var p=parseFloat(array[16]);
+            var max= Math.max(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p);
+            if (parseInt(array[26])==0){
+            img.src = 'white.jpg';}
+            if (parseInt(array[26])==1){
+            img.src = 'azul.jpeg';}
+            if (parseInt(array[26])==2){
+            img.src = 'amarillo.jpeg';}
+            img.onload = function(){
+                lienzo.drawImage(img,0,0,400,300);
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.lineWidth=3;
+                lienzo.moveTo(50,250);
+                lienzo.lineTo(350,250);
+                lienzo.moveTo(50,50);
+                lienzo.lineTo(50,250);
+                lienzo.stroke();
+                lienzo.beginPath();
+                lienzo.textAlign="start";
+                lienzo.fillStyle =  "black";
+                lienzo.fillText(array[21],3,85);
+                lienzo.fillText(array[22],3,125);
+                lienzo.fillText(array[23],3,165);
+                lienzo.fillText(array[24],3,205);
+                lienzo.textAlign="center";
+                lienzo.fillText(max/4,50+300/4,260);
+                lienzo.fillText(max/2,50+300/2,260);
+                lienzo.fillText(3*max/4,50+3*300/4,260);
+                lienzo.fillText(max,350,260);
+               
+                lienzo.beginPath();
+                lienzo.moveTo(50,73);
+                lienzo.lineTo(50+a*300/max,73);
+                lienzo.moveTo(50,113);
+                lienzo.lineTo(50+e*300/max,113);
+                lienzo.moveTo(50,153);
+                lienzo.lineTo(50+i*300/max,153);
+                lienzo.moveTo(50,193);
+                lienzo.lineTo(50+m*300/max,193);
+                lienzo.strokeStyle=array[17];
+                lienzo.stroke();
+
+                lienzo.beginPath();
+                lienzo.moveTo(50,81);
+                lienzo.lineTo(50+b*300/max,81);
+                lienzo.moveTo(50,121);
+                lienzo.lineTo(50+f*300/max,121);
+                lienzo.moveTo(50,161);
+                lienzo.lineTo(50+j*300/max,161);
+                lienzo.moveTo(50,201);
+                lienzo.lineTo(50+n*300/max,201); 
+                lienzo.strokeStyle=array[18];
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.strokeStyle=array[19];
+                lienzo.moveTo(50,89);
+                lienzo.lineTo(50+c*300/max,89);
+                lienzo.moveTo(50,129);
+                lienzo.lineTo(50+g*300/max,129);
+                lienzo.moveTo(50,169);
+                lienzo.lineTo(50+k*300/max,169);
+                lienzo.moveTo(50,209);
+                lienzo.lineTo(50+o*300/max,209);
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.strokeStyle=array[20];
+                lienzo.moveTo(50,97);
+                lienzo.lineTo(50+d*300/max,97);
+                lienzo.moveTo(50,137);
+                lienzo.lineTo(50+h*300/max,137); 
+                lienzo.moveTo(50,177);
+                lienzo.lineTo(50+l*300/max,177);
+                lienzo.moveTo(50,217);
+                lienzo.lineTo(50+p*300/max,217);
+
+                lienzo.stroke();
+            }
+        }
+        function g4(){
+          var miLienzo = document.getElementById('miLienzo4');
+            var lienzo = miLienzo.getContext('2d');
+            var img= new Image();
+            var a=parseFloat(array[1])+parseFloat(array[5])+parseFloat(array[9])+parseFloat(array[13]);
+            var b=parseFloat(array[2])+parseFloat(array[6])+parseFloat(array[10])+parseFloat(array[14]);
+            var c=parseFloat(array[3])+parseFloat(array[7])+parseFloat(array[11])+parseFloat(array[15]);
+            var d=parseFloat(array[4])+parseFloat(array[8])+parseFloat(array[12])+parseFloat(array[16]);
+            var max= Math.max(a,b,c,d);
+            var apos= 250-(a*100/max)*2;
+            var bpos= 250-(b*100/max)*2;
+            var cpos= 250-(c*100/max)*2;
+            var dpos= 250-(d*100/max)*2;
+            if (parseInt(array[26])==0){
+            img.src = 'white.jpg';}
+            if (parseInt(array[26])==1){
+            img.src = 'azul.jpeg';}
+            if (parseInt(array[26])==2){
+            img.src = 'amarillo.jpeg';}
+            img.onload = function(){
+                lienzo.drawImage(img,0,0,400,300);
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.lineWidth=3;
+                lienzo.moveTo(50,250);
+                lienzo.lineTo(350,250);
+                lienzo.moveTo(50,50);
+                lienzo.lineTo(50,250);
+                lienzo.stroke();
+                lienzo.beginPath();
+                lienzo.fillStyle="black";
+                lienzo.lineWidth=0.5;
+                lienzo.moveTo(50,50);
+                lienzo.lineTo(350,50);
+                lienzo.fillText(max,25,50);
+                lienzo.moveTo(50,100);
+                lienzo.lineTo(350,100);
+                lienzo.fillText(3*max/4,25,100);
+                lienzo.moveTo(50,150);
+                lienzo.lineTo(350,150);
+                lienzo.fillText(max/2,25,150);
+                lienzo.moveTo(50,200);
+                lienzo.lineTo(350,200);
+                lienzo.fillText(max/4,25,200);
+                lienzo.fillText(array[21],50+300/8,260);
+                lienzo.fillText(array[22],50 + 3 * 300 / 8,260);
+                lienzo.fillText(array[23],50 + 5 * 300 / 8,260);
+                lienzo.fillText(array[24],50 + 7 * 300 / 8,260);
+                lienzo.stroke();
+                lienzo.moveTo(50,250);
+                lienzo.lineTo(50,apos);
+                lienzo.closePath();
+                
+                lienzo.beginPath();
+                lienzo.moveTo(50+300/8,250);
+                lienzo.lineTo(50+300/8,apos);
+                // gruix de la linea
+                lienzo.strokeStyle = (array[17]);
+                lienzo.lineWidth=40;
+                lienzo.stroke();
+
+                //BARRA2
+                lienzo.beginPath();
+                lienzo.moveTo(50 + 3 * 300 / 8, 250);
+                lienzo.lineTo(50 + 3 * 300 / 8, bpos);
+                // gruix de la linea
+                lienzo.strokeStyle = (array[18]);
+                lienzo.lineWidth = 40;
+                lienzo.stroke();
+
+                //BARRA3
+                lienzo.beginPath();
+                lienzo.moveTo(50 + 5 * 300 / 8, 250);
+                lienzo.lineTo(50 + 5 * 300 / 8, cpos);
+                // gruix de la linea
+                lienzo.strokeStyle = (array[19]);
+                lienzo.lineWidth = 40;
+                lienzo.stroke();
+
+                //BARRA4
+                lienzo.beginPath();
+                lienzo.moveTo(50 + 7 * 300 / 8, 250);
+                lienzo.lineTo(50 + 7 * 300 / 8, dpos);
+                // gruix de la linea
+                lienzo.strokeStyle = (array[20]);
+                lienzo.lineWidth = 40;
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.fillStyle = (array[17]);
+				lienzo.fillText(array[21],75,20);
+                lienzo.stroke();
+
+                lienzo.fillStyle =  (array[18]);
+				lienzo.fillText(array[22],150,20);
+				lienzo.stroke();
+
+				lienzo.fillStyle =  (array[19]);
+				lienzo.fillText(array[23],225,20);
+				lienzo.stroke();
+
+                lienzo.fillStyle =  (array[20]);
+                lienzo.fillText(array[24],300,20);
+                lienzo.stroke();
 
             }
         }
