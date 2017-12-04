@@ -11,22 +11,26 @@
 
 			<div class="container">
 							<div id="colortable" class="table-editable">
-								<table class="colortable">
+								<table class="table">
 									<tr>
+                    <th></th>
 										<th id="demo" contenteditable="true">Color:</th>
 										<th>Color:</th>
 										<th>Color:</th>
 										<th>Color:</th>
                     <th>Tipografia:</th>
                     <th>Fondo:</th>
+                    <th>Grosor de linea:</th>
 									</tr>
 									<tr>
+                    <td >Fill propiedades</td>
 										<td id="c1"contenteditable="true">#FF0000</td>
 										<td id="c2"contenteditable="true">#FF8000</td>
 										<td id="c3"contenteditable="true">#40FF00</td>
 										<td id="c4"contenteditable="true">#0040FF</td>
                     <td id="T1"contenteditable="true">ARIAL</td>
                     <td id="fons" contenteditable="true">0</td>
+                    <td id="gros" contenteditable="true">0.5</td>
 									</tr>
 
               </div>
@@ -45,28 +49,28 @@
                               <th id="n4"contenteditable="true" type="text">RRR</th>
                             </tr>
                             <tr>
-															<td contenteditable="true">Value</td>
+															<td >Value</td>
                               <td id="i1"contenteditable="true">0</td>
                               <td id="j1"contenteditable="true">0</td>
                               <td id="a1"contenteditable="true">0</td>
                               <td id="b1"contenteditable="true">0</td>
                             </tr>
                             <tr>
-															<td contenteditable="true">Value</td>
+															<td>Value</td>
                                 <td id="i2"contenteditable="true">0</td>
                                 <td id="j2"contenteditable="true">0</td>
                                 <td id="a2"contenteditable="true">0</td>
                                 <td id="b2"contenteditable="true">0</td>
                             </tr>
                             <tr>
-															<td contenteditable="true">Value</td>
+															<td>Value</td>
                                 <td id="i3"contenteditable="true">0</td>
                                 <td id="j3"contenteditable="true">0</td>
                                 <td id="a3"contenteditable="true">0</td>
                                 <td id="b3"contenteditable="true">0</td>
                             </tr>
                             <tr>
-															<td contenteditable="true">Value</td>
+															<td>Value</td>
                                 <td id="i4"contenteditable="true">0</td>
                                 <td id="j4"contenteditable="true">0</td>
                                 <td id="a4"contenteditable="true">0</td>
@@ -128,6 +132,7 @@
 												//Tipus de tipografia
 												array[25]=document.getElementById("T1").innerHTML;
                         array[26]=document.getElementById("fons").innerHTML;
+                        array[27]=document.getElementById("gros").innerHTML;
                         }
                         var myVar2=setInterval(function(){ carga() }, 1000);
         function carga(){
@@ -162,9 +167,9 @@
             img.src = 'amarillo.jpeg';}
             img.onload = function(){
                 lienzo.drawImage(img,0,0,400,300);
-                lienzo.strokeStyle = "#ff00ff";
                 lienzo.fillStyle=(array[17]);
                 lienzo.beginPath();
+                lienzo.lineWidth=parseFloat(array[27]);
                 lienzo.moveTo(200,150);
                 lienzo.lineTo(300,150);
                 lienzo.arc(200,150,100,0,porci,false);
@@ -181,7 +186,6 @@
                 lienzo.fill();
                 lienzo.fillStyle = (array[19]);
                 lienzo.stroke();
-                lienzo.strokeStyle = "white";
                 lienzo.beginPath();
                 lienzo.moveTo(200,150);
                 lienzo.arc(200,150,100,porci+porcj,porci+porca+porcj,false);
@@ -189,16 +193,17 @@
                 lienzo.fill();
                 lienzo.fillStyle= (array[20]);
                 lienzo.stroke();
-                lienzo.strokeStyle = "black";
                 lienzo.beginPath();
                 lienzo.moveTo(200,150);
                 lienzo.lineTo(200+100*Math.cos(porci+porca+porcj),150+100*Math.sin(porci+porca+porcj));
                 lienzo.arc(200,150,100,porci+porcj+porca,porci+porca+porcj+porcb,false);
+                lienzo.closePath();
                 lienzo.fill();
                 lienzo.stroke();
 
 
 								// LLegenda del gràfic
+                
 								lienzo.font = "13px Comic Sans MS";
 							lienzo.fillStyle = (array[17]);
 								lienzo.fillText(array[21]+i2.toFixed(1)+"%",300,220);
@@ -262,6 +267,7 @@
             img.src = 'amarillo.jpeg';}
 
             img.onload = function(){
+              lienzo.font = "10px Comic Sans MS";
                 lienzo.drawImage(img,0,0,400,300);
                 lienzo.strokeStyle = "black";
                 lienzo.fillStyle="black";
@@ -293,7 +299,7 @@
                 lienzo.fillText(array[24],275,260);
                 lienzo.stroke();
                 lienzo.beginPath();
-                
+                lienzo.lineWidth=parseFloat(array[27]);
                 lienzo.moveTo(75,apos);
                 lienzo.lineTo(150,bpos);
                 lienzo.lineTo(225,cpos);
@@ -371,6 +377,7 @@
             if (parseInt(array[26])==2){
             img.src = 'amarillo.jpeg';}
             img.onload = function(){
+              lienzo.font = "10px Comic Sans MS";
                 lienzo.drawImage(img,0,0,400,300);
                 lienzo.strokeStyle = "black";
                 lienzo.beginPath();
@@ -463,6 +470,7 @@
             if (parseInt(array[26])==2){
             img.src = 'amarillo.jpeg';}
             img.onload = function(){
+              lienzo.font = "10px Comic Sans MS";
                 lienzo.drawImage(img,0,0,400,300);
                 lienzo.strokeStyle = "black";
                 lienzo.beginPath();
