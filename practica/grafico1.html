@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            grafico1
+        </title>
+    </head>
+    <script type="text/javascript">
+        window.onload=carga;
+        function carga(){
+            var miLienzo = document.getElementById('miLienzo');
+            var lienzo = miLienzo.getContext('2d');
+            var img= new Image();
+            var i=20;
+            var j=10;
+            var a=180;
+            var b=30;
+            var suma=i+j+a+b;
+            var porci=i*2*Math.PI/suma;
+            var porcj=j*2*Math.PI/suma;
+            var porca=a*2*Math.PI/suma;
+            var porcb=b*2*Math.PI/suma;
+            img.src = 'fondo.jpg';
+            img.onload = function(){
+                lienzo.drawImage(img,0,0,400,300);
+                lienzo.strokeStyle = "#ff00ff";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.lineTo(300,150);
+                lienzo.arc(200,150,100,0,porci,false);
+                lienzo.closePath();
+                lienzo.fill();
+                lienzo.fillStyle ="blue";
+                lienzo.stroke();
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.lineTo(200+100*Math.cos(porci),150+100*Math.sin(porci));
+                lienzo.arc(200,150,100,porci,porcj+porci,false);
+                lienzo.closePath();
+                lienzo.fill();
+                lienzo.fillStyle = "purple";
+                lienzo.stroke();
+                lienzo.strokeStyle = "white";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.arc(200,150,100,porci+porcj,porci+porca+porcj,false);
+                lienzo.closePath();
+                lienzo.fill();
+                lienzo.fillStyle= "green";
+                lienzo.stroke();
+                lienzo.strokeStyle = "black";
+                lienzo.beginPath();
+                lienzo.moveTo(200,150);
+                lienzo.lineTo(200+100*Math.cos(porci+porca+porcj),150+100*Math.sin(porci+porca+porcj));
+                lienzo.arc(200,150,100,porci+porcj+porca,porci+porca+porcj+porcb,false);
+                lienzo.fill();
+                lienzo.stroke();
+
+            }
+        }
+    </script>
+    <body>
+        <canvas width="400" height="300" id="miLienzo">
+            Lo sentimos, tu navegador no soporta canvas
+        </canvas>
+    </body>
+</html>

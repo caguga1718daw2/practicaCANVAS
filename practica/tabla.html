@@ -1,0 +1,59 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<title>
+		</title>
+		<body>
+                <div class="container">
+                        <div id="table" class="table-editable">
+                          <table class="table">
+                            <tr>
+                              <th id="demo" contenteditable="true">Name</th>
+                              <th contenteditable="true">Value</th>
+                              <th contenteditable="true">Value</th>
+                              <th contenteditable="true">Value</th>
+                            </tr>
+                            <tr id= "demo2">
+                              <td contenteditable="true">0</td>
+                              <td contenteditable="true">0</td>
+                              <td contenteditable="true">0</td>
+                              <td contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                                <td contenteditable="true">0</td>
+                            </tr>
+                        </div>
+                        <button id="export-btn" class="btn btn-primary">Export Data</button>
+                        <p id="export"></p>
+                        <p id="ee"></p>
+                      </div>
+                      <script type="text/javascript">
+                        var array = [];
+                        var a=1;
+                        var myVar = setInterval(function(){ data() }, 1000);
+                        function data(){
+                        array[0]=document.getElementById("demo").innerHTML;
+                        array[1]=document.getElementById("demo2").innerHTML;
+                        document.getElementById("export").innerHTML = array;
+                        a=array[1];
+                        document.getElementById("ee").innerHTML = array[1];
+                        
+                        }
+                      </script>
+		</body>
+</head>
