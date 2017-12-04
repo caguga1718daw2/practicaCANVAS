@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Raul Francos i Carlos Guinovart" />
     <link rel="stylesheet" type="text/css" href="css/css.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 </head>
 
@@ -42,16 +43,50 @@ window.makeLarge = function() {
 
 };
 
+function requestFullScreen() {
+
+  var el = document.body;
+
+  // Supports most browsers and their versions.
+  var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen
+  || el.mozRequestFullScreen || el.msRequestFullScreen;
+
+  if (requestMethod) {
+
+    // Native full screen.
+    requestMethod.call(el);
+
+  } else if (typeof window.ActiveXObject !== "undefined") {
+
+    // Older IE.
+    var wscript = new ActiveXObject("WScript.Shell");
+
+    if (wscript !== null) {
+      wscript.SendKeys("{F11}");
+    }
+  }
+}
+
+
+
 </script>
 <div align ="center">
-<button onclick="reproducir()">Reproducir</button>
-<button onclick="pausar()">Parar</button>
-<button onclick="reload()">Recargar</button>
-<button onclick="makeLarge()">pantalla completa</button>
+<button class="btn btn-dark" onclick="reproducir()">Reproducir</button>
+<button class="btn btn-dark" onclick="pausar()">Parar</button>
+<button class="btn btn-dark" onclick="reload()">Recargar</button>
+<input class="btn btn-dark" type="button" value="PANTALLA COMPLETA" onclick="requestFullScreen()">
+
 </div>
+<div align ="center">
 
 <video id="video" width="640" height="480">
     <source src="media/big_buck_bunny.ogv" type="video/ogg">
-</video>
+    </video><br>
+        <a href="./megamix.html" class="btn btn-warning" >VÉS ALS GRÀFICS</a>
+
+    </div>
+
+
+
 </body>
 </html>
