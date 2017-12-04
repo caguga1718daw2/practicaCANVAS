@@ -75,6 +75,9 @@
                         <canvas width="400" height="300" id="miLienzo">
                             Lo sentimos, tu navegador no soporta canvas
                         </canvas>
+                        <canvas width="400" height="300" id="miLienzo2">
+                          Lo sentimos, tu navegador no soporta canvas
+                      </canvas>
                       </div>
                       <script type="text/javascript">
                         var array = [];
@@ -129,6 +132,10 @@
             var a=parseFloat(array[3])+parseFloat(array[7])+parseFloat(array[11])+parseFloat(array[15]);
             var b=parseFloat(array[4])+parseFloat(array[8])+parseFloat(array[12])+parseFloat(array[16]);
             var suma=i+j+a+b;
+            var i2=i/suma*100;
+            var j2=j/suma*100;
+            var a2=a/suma*100;
+            var b2=b/suma*100;
             var porci=i*2*Math.PI/suma;
             var porcj=j*2*Math.PI/suma;
             var porca=a*2*Math.PI/suma;
@@ -175,16 +182,16 @@
 								// LLegenda del gràfic
 								lienzo.font = "13px Comic Sans MS";
 							lienzo.fillStyle = (array[17]);
-								lienzo.fillText(array[21],300,220);
+								lienzo.fillText(array[21]+i2.toFixed(1)+"%",300,220);
 								lienzo.stroke();
 								lienzo.fillStyle =  (array[18]);
-								lienzo.fillText(array[22],300,240);
+								lienzo.fillText(array[22]+j2.toFixed(1)+"%",300,240);
 								lienzo.stroke();
 								lienzo.fillStyle =  (array[19]);
-								lienzo.fillText(array[23],300,260);
+								lienzo.fillText(array[23]+a2.toFixed(1)+"%",300,260);
 								lienzo.stroke();
 								lienzo.fillStyle =  (array[20]);
-								lienzo.fillText(array[24],300,280);
+								lienzo.fillText(array[24]+b2.toFixed(1)+"%",300,280);
 								lienzo.stroke();
 
 

@@ -1,26 +1,151 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <meta charset="utf-8" />
-        <title>
-          grafico3
-        </title>
-    </head>
-    <script type="text/javascript">
+	<head>
+    <meta charset="utf-8">
+		<title>
+		</title>
+		<body>
+
+			<div class="container">
+							<div id="colortable" class="table-editable">
+								<table class="colortable">
+									<tr>
+										<th id="demo" contenteditable="true">Color:</th>
+										<th>Color:</th>
+										<th>Color:</th>
+										<th>Color:</th>
+										<th>Tipografia:</th>
+									</tr>
+									<tr>
+										<td id="c1"contenteditable="true">#FF0000</td>
+										<td id="c2"contenteditable="true">#FF8000</td>
+										<td id="c3"contenteditable="true">#40FF00</td>
+										<td id="c4"contenteditable="true">#0040FF</td>
+										<td id="T1"contenteditable="true">ARIAL</td>
+									</tr>
+
+							</div>
+							<p id="exportColor"></p>
+
+
+
+                <div class="container">
+                        <div id="table" class="table-editable">
+                          <table class="table">
+
+                            <tr>
+															<th></th>
+                              <th id="n1"contenteditable="true" type="text">RRR</th>
+                              <th id="n2"contenteditable="true" type="text">RRR</th>
+                              <th id="n3"contenteditable="true" type="text">RRR</th>
+                              <th id="n4"contenteditable="true" type="text">RRR</th>
+                            </tr>
+                            <tr>
+															<td contenteditable="true">Value</td>
+                              <td id="i1"contenteditable="true">0</td>
+                              <td id="j1"contenteditable="true">0</td>
+                              <td id="a1"contenteditable="true">0</td>
+                              <td id="b1"contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+															<td contenteditable="true">Value</td>
+                                <td id="i2"contenteditable="true">0</td>
+                                <td id="j2"contenteditable="true">0</td>
+                                <td id="a2"contenteditable="true">0</td>
+                                <td id="b2"contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+															<td contenteditable="true">Value</td>
+                                <td id="i3"contenteditable="true">0</td>
+                                <td id="j3"contenteditable="true">0</td>
+                                <td id="a3"contenteditable="true">0</td>
+                                <td id="b3"contenteditable="true">0</td>
+                            </tr>
+                            <tr>
+															<td contenteditable="true">Value</td>
+                                <td id="i4"contenteditable="true">0</td>
+                                <td id="j4"contenteditable="true">0</td>
+                                <td id="a4"contenteditable="true">0</td>
+                                <td id="b4"contenteditable="true">0</td>
+                            </tr>
+                        </div>
+                        <button id="export-btn" class="btn btn-primary">Export Data</button>
+                        <p id="export"></p>
+                        <p id="ee"></p>
+                        <p id="a"></p>
+                        <canvas width="400" height="300" id="miLienzo">
+                            Lo sentimos, tu navegador no soporta canvas
+                        </canvas>
+                        <canvas width="400" height="300" id="miLienzo2">
+                          Lo sentimos, tu navegador no soporta canvas
+                      </canvas>
+                      </div>
+                      <script type="text/javascript">
+                        var array = [];
+                        var a=1;
+                        function data(){
+                        array[0]=document.getElementById("demo").innerHTML;
+                        array[1]=document.getElementById("i1").innerHTML;
+                        array[2]=document.getElementById("j1").innerHTML;
+                        array[3]=document.getElementById("a1").innerHTML;
+                        array[4]=document.getElementById("b1").innerHTML;
+                        array[5]=document.getElementById("i2").innerHTML;
+                        array[6]=document.getElementById("j2").innerHTML;
+                        array[7]=document.getElementById("a2").innerHTML;
+                        array[8]=document.getElementById("b2").innerHTML;
+                        array[9]=document.getElementById("i3").innerHTML;
+                        array[10]=document.getElementById("j3").innerHTML;
+                        array[11]=document.getElementById("a3").innerHTML;
+                        array[12]=document.getElementById("b3").innerHTML;
+                        array[13]=document.getElementById("i4").innerHTML;
+                        array[14]=document.getElementById("j4").innerHTML;
+                        array[15]=document.getElementById("a4").innerHTML;
+                        array[16]=document.getElementById("b4").innerHTML;
+
+												//Colors per els gràfics
+												array[17]=document.getElementById("c1").innerHTML;
+												array[18]=document.getElementById("c2").innerHTML;
+												array[19]=document.getElementById("c3").innerHTML;
+												array[20]=document.getElementById("c4").innerHTML;
+
+												//titol de la porcio
+												array[21]=document.getElementById("n1").innerHTML;
+												array[22]=document.getElementById("n2").innerHTML;
+												array[23]=document.getElementById("n3").innerHTML;
+												array[24]=document.getElementById("n4").innerHTML;
+
+												//Tipus de tipografia
+												array[25]=document.getElementById("T1").innerHTML;
+
+
+                        document.getElementById("export").innerHTML = array;
+                        a=array[1];
+                        document.getElementById("ee").innerHTML = parseFloat(array[1]);
+                        }
+                        var myVar2=setInterval(function(){ carga() }, 1000);
         window.onload=carga;
         function carga(){
+            var myVar = setInterval(function(){ data() }, 1000);
             var miLienzo = document.getElementById('miLienzo');
             var lienzo = miLienzo.getContext('2d');
             var img= new Image();
-            var a=50;
-            var b=20;
-            var c=200;
-            var d=80;
-            var max= Math.max(a,b,c,d);
-            var apos= 250-(a*100/Math.max(a,b,c,d))*2;
-            var bpos= 250-(b*100/Math.max(a,b,c,d))*2;
-            var cpos= 250-(c*100/Math.max(a,b,c,d))*2;
-            var dpos= 250-(d*100/Math.max(a,b,c,d))*2;
+            var a=parseFloat(array[1]);
+            var b=parseFloat(array[2]);
+            var c=parseFloat(array[3]);
+            var d=parseFloat(array[4]);
+            var e=parseFloat(array[5]);
+            var f=parseFloat(array[6]);
+            var g=parseFloat(array[7]);
+            var h=parseFloat(array[8]);
+            var i=parseFloat(array[9]);
+            var j=parseFloat(array[10]);
+            var k=parseFloat(array[11]);
+            var l=parseFloat(array[12]);
+            var m=parseFloat(array[13]);
+            var n=parseFloat(array[14]);
+            var o=parseFloat(array[15]);
+            var p=parseFloat(array[16]);
+            var max= Math.max(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p);
             img.src = 'fondo.jpg';
             img.onload = function(){
                 lienzo.drawImage(img,0,0,400,300);
@@ -33,6 +158,7 @@
                 lienzo.lineTo(50,250);
                 lienzo.stroke();
                 lienzo.beginPath();
+                lienzo.textAlign="start";
                 lienzo.fillText("EUROPA",3,85);
                 lienzo.fillText("AMERICA",3,125);
                 lienzo.fillText("ASIA",3,165);
@@ -42,38 +168,53 @@
                 lienzo.fillText(max/2,50+300/2,260);
                 lienzo.fillText(3*max/4,50+3*300/4,260);
                 lienzo.fillText(max,350,260);
+               
+                lienzo.beginPath();
                 lienzo.moveTo(50,73);
-                lienzo.lineTo(50+a*300/200,73);
-                lienzo.moveTo(50,81);
-                lienzo.lineTo(50+b*300/200,81);
-                lienzo.moveTo(50,89);
-                lienzo.lineTo(50+c*300/200,89);
-                lienzo.moveTo(50,97);
-                lienzo.lineTo(50+d*300/200,97);
+                lienzo.lineTo(50+a*300/max,73);
                 lienzo.moveTo(50,113);
-                lienzo.lineTo(50+d*300/200,113);
-                lienzo.moveTo(50,121);
-                lienzo.lineTo(50+a*300/200,121);
-                lienzo.moveTo(50,129);
-                lienzo.lineTo(50+b*300/200,129);
-                lienzo.moveTo(50,137);
-                lienzo.lineTo(50+c*300/200,137);
+                lienzo.lineTo(50+e*300/max,113);
                 lienzo.moveTo(50,153);
-                lienzo.lineTo(50+d*300/200,153);
-                lienzo.moveTo(50,161);
-                lienzo.lineTo(50+a*300/200,161);
-                lienzo.moveTo(50,169);
-                lienzo.lineTo(50+b*300/200,169);
-                lienzo.moveTo(50,177);
-                lienzo.lineTo(50+c*300/200,177);
+                lienzo.lineTo(50+i*300/max,153);
                 lienzo.moveTo(50,193);
-                lienzo.lineTo(50+d*300/200,193);
+                lienzo.lineTo(50+m*300/max,193);
+                lienzo.strokeStyle="blue";
+                lienzo.stroke();
+
+                lienzo.beginPath();
+                lienzo.moveTo(50,81);
+                lienzo.lineTo(50+b*300/max,81);
+                lienzo.moveTo(50,121);
+                lienzo.lineTo(50+f*300/max,121);
+                lienzo.moveTo(50,161);
+                lienzo.lineTo(50+j*300/max,161);
                 lienzo.moveTo(50,201);
-                lienzo.lineTo(50+a*300/200,201);
+                lienzo.lineTo(50+n*300/max,201); 
+                lienzo.strokeStyle="red";
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.strokeStyle="green";
+                lienzo.moveTo(50,89);
+                lienzo.lineTo(50+c*300/max,89);
+                lienzo.moveTo(50,129);
+                lienzo.lineTo(50+g*300/max,129);
+                lienzo.moveTo(50,169);
+                lienzo.lineTo(50+k*300/max,169);
                 lienzo.moveTo(50,209);
-                lienzo.lineTo(50+b*300/200,209);
+                lienzo.lineTo(50+o*300/max,209);
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.strokeStyle="black";
+                lienzo.moveTo(50,97);
+                lienzo.lineTo(50+d*300/max,97);
+                lienzo.moveTo(50,137);
+                lienzo.lineTo(50+h*300/max,137); 
+                lienzo.moveTo(50,177);
+                lienzo.lineTo(50+l*300/max,177);
                 lienzo.moveTo(50,217);
-                lienzo.lineTo(50+c*300/200,217);
+                lienzo.lineTo(50+p*300/max,217);
 
                 lienzo.stroke();
             }
