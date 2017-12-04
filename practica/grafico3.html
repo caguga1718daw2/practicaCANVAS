@@ -159,10 +159,11 @@
                 lienzo.stroke();
                 lienzo.beginPath();
                 lienzo.textAlign="start";
-                lienzo.fillText("EUROPA",3,85);
-                lienzo.fillText("AMERICA",3,125);
-                lienzo.fillText("ASIA",3,165);
-                lienzo.fillText("AFRICA",3,205);
+                lienzo.fillStyle =  "black";
+                lienzo.fillText(array[21],3,85);
+                lienzo.fillText(array[22],3,125);
+                lienzo.fillText(array[23],3,165);
+                lienzo.fillText(array[24],3,205);
                 lienzo.textAlign="center";
                 lienzo.fillText(max/4,50+300/4,260);
                 lienzo.fillText(max/2,50+300/2,260);
@@ -178,7 +179,7 @@
                 lienzo.lineTo(50+i*300/max,153);
                 lienzo.moveTo(50,193);
                 lienzo.lineTo(50+m*300/max,193);
-                lienzo.strokeStyle="blue";
+                lienzo.strokeStyle=array[17];
                 lienzo.stroke();
 
                 lienzo.beginPath();
@@ -190,11 +191,11 @@
                 lienzo.lineTo(50+j*300/max,161);
                 lienzo.moveTo(50,201);
                 lienzo.lineTo(50+n*300/max,201); 
-                lienzo.strokeStyle="red";
+                lienzo.strokeStyle=array[18];
                 lienzo.stroke();
                 
                 lienzo.beginPath();
-                lienzo.strokeStyle="green";
+                lienzo.strokeStyle=array[19];
                 lienzo.moveTo(50,89);
                 lienzo.lineTo(50+c*300/max,89);
                 lienzo.moveTo(50,129);
@@ -206,7 +207,7 @@
                 lienzo.stroke();
                 
                 lienzo.beginPath();
-                lienzo.strokeStyle="black";
+                lienzo.strokeStyle=array[20];
                 lienzo.moveTo(50,97);
                 lienzo.lineTo(50+d*300/max,97);
                 lienzo.moveTo(50,137);

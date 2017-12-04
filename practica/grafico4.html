@@ -150,6 +150,7 @@
                 lienzo.lineTo(50,250);
                 lienzo.stroke();
                 lienzo.beginPath();
+                lienzo.fillStyle="black";
                 lienzo.lineWidth=0.5;
                 lienzo.moveTo(50,50);
                 lienzo.lineTo(350,50);
@@ -163,10 +164,10 @@
                 lienzo.moveTo(50,200);
                 lienzo.lineTo(350,200);
                 lienzo.fillText(max/4,25,200);
-                lienzo.fillText("Europa",50,260);
-                lienzo.fillText("América",125,260);
-                lienzo.fillText("Asia",200,260);
-                lienzo.fillText("África",275,260);
+                lienzo.fillText(array[21],50+300/8,260);
+                lienzo.fillText(array[22],50 + 3 * 300 / 8,260);
+                lienzo.fillText(array[23],50 + 5 * 300 / 8,260);
+                lienzo.fillText(array[24],50 + 7 * 300 / 8,260);
                 lienzo.stroke();
                 lienzo.moveTo(50,250);
                 lienzo.lineTo(50,apos);
@@ -205,6 +206,23 @@
                 // gruix de la linea
                 lienzo.strokeStyle = (array[20]);
                 lienzo.lineWidth = 40;
+                lienzo.stroke();
+                
+                lienzo.beginPath();
+                lienzo.fillStyle = (array[17]);
+				lienzo.fillText(array[21],75,20);
+                lienzo.stroke();
+
+                lienzo.fillStyle =  (array[18]);
+				lienzo.fillText(array[22],150,20);
+				lienzo.stroke();
+
+				lienzo.fillStyle =  (array[19]);
+				lienzo.fillText(array[23],225,20);
+				lienzo.stroke();
+
+                lienzo.fillStyle =  (array[20]);
+                lienzo.fillText(array[24],300,20);
                 lienzo.stroke();
 
             }
